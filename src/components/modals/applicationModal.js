@@ -34,7 +34,7 @@ module.exports = {
           iconURL: guild.iconURL({ size: 512 }),
         })
         .setTimestamp();
-      Object.keys(Application.Questions).forEach(([key]) => {
+      Object.keys(Application.Questions).forEach((key) => {
         let question = fields.getTextInputValue(key);
         if (question.length < 1) question = "No answer provided";
         embed.addFields({ name: key, value: question });
