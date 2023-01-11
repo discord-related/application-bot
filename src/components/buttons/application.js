@@ -8,6 +8,7 @@ module.exports = {
   id: "application",
   async execute(interaction, client) {
     try {
+
       const { config } = client;
       const { acceptedRoles, requiredRoles, restrictedRoles } =
         config.Applications[Object.keys(config.Applications)[0]];

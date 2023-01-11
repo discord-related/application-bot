@@ -15,12 +15,13 @@ module.exports = {
     .setDMPermission(false),
   async execute(interaction, client) {
     try {
+      await interaction.deferReply();
       const { config } = client;
       const { channel, guild, member } = interaction;
       const { acceptedColor, applyMessage } = client.config;
 
       if (!member.permissions.has(Administrator))
-        return interaction.reply({
+        return interaction.editReply({
           content: "You don't have permission to use this command.",
           ephemeral: true,
         });
@@ -62,14 +63,13 @@ module.exports = {
         components: [components],
       });
 
-      interaction.reply({
+      await interaction.editReply({
         content: "Application message sent!",
         ephemeral: true,
       });
     } catch (error) {
-      console.log(error);
-      interaction.reply({
-        content: "An error occurred, check the console for more information.",
+      await interaction.editReply({
+        content: ["**Error**", `\`\`\`js\n${error}\`\`\``].join("\n"),
         ephemeral: true,
       });
     }

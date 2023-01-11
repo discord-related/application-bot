@@ -12,8 +12,7 @@ module.exports = {
     try {
       const { fields, guild, member, user } = interaction;
       const { config } = client;
-      const Application =
-        config.Applications[interaction.customId.split(" ")[1]];
+      const Application = config.Applications[interaction.customId.replace("applicationModal ", "")];
       const { pendingColor } = config;
       const { Channel, mentionRoles } = Application;
 
@@ -22,18 +21,18 @@ module.exports = {
         mentions += `<@&${role}> `;
       });
       const embed = new EmbedBuilder()
-        .setAuthor({
-          name: guild.name,
-          iconURL: guild.iconURL({ size: 512 }),
-        })
-        .setTitle(`**${user.tag}'s Application**`)
-        .setColor(pendingColor)
-        .setThumbnail(user.displayAvatarURL({ size: 512 }))
-        .setFooter({
-          text: `${interaction.customId.split(" ")[1]} | Application`,
-          iconURL: guild.iconURL({ size: 512 }),
-        })
-        .setTimestamp();
+          .setAuthor({
+            name: guild.name,
+            iconURL: guild.iconURL({ size: 512 }),
+          })
+          .setTitle(`**${user.tag}'s Application**`)
+          .setColor(pendingColor)
+          .setThumbnail(user.displayAvatarURL({ size: 512 }))
+          .setFooter({
+            text: `${interaction.customId.replace("applicationModal ", "")} | Application`,
+            iconURL: guild.iconURL({ size: 512 }),
+          })
+          .setTimestamp()
       Object.keys(Application.Questions).forEach((key) => {
         let question = fields.getTextInputValue(key);
         if (question.length < 1) question = "No answer provided";

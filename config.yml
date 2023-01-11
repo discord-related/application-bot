@@ -20,14 +20,16 @@ deniedColor: "#E74C3C"
 # Applications
 Applications:
 
-  # Application Name
+  # Application Name ( Replace Example1 with name of application )
+  #   * Example...  Staff Application:
   Example1:
 
     # All the questions that will be asked in the application
     Questions:
 
-      # Application Question
-      this is the first question:
+      # Application Question ( Replace "this is the first Question1" )
+      #   * Example...  What is your name?:
+      Question1:
 
         # Minimum length of the response
         minLength: 0
@@ -47,13 +49,13 @@ Applications:
         # Whether the question is required or not
         required: true
 
-      this is the second question:
+      Question2:
         minLength: 0
         maxLength: 1000
         type: Paragraph
         placeholder: "placeholder text"
         required: true
-      this is the third question:
+      Question3:
         minLength: 0
         maxLength: 1000
         type: Paragraph
@@ -80,26 +82,26 @@ Applications:
 
     # Roles the user will be given when the application is denied
     deniedRoles:
-        - '1057580019171463189'
+      - '1057580019171463189'
 
     # The description of the application
     description: "This is the description of the application"
 
   Example2:
     Questions:
-      this is the first question:
+      Question1:
         minLength: 0
         maxLength: 16
         type: Short
         value: "second ex"
         required: true
-      this is the second question:
+      Question2:
         minLength: 0
         maxLength: 1000
         type: Paragraph
         placeholder: "placeholder text"
         required: true
-      this is the third question:
+      Question3:
         minLength: 0
         maxLength: 1000
         type: Paragraph
