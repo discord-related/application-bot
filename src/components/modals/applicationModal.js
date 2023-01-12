@@ -20,24 +20,27 @@ module.exports = {
       mentionRoles.forEach((role) => {
         mentions += `<@&${role}> `;
       });
+
       const embed = new EmbedBuilder()
-          .setAuthor({
-            name: guild.name,
-            iconURL: guild.iconURL({ size: 512 }),
-          })
-          .setTitle(`**${user.tag}'s Application**`)
-          .setColor(pendingColor)
-          .setThumbnail(user.displayAvatarURL({ size: 512 }))
-          .setFooter({
-            text: `${interaction.customId.replace("applicationModal ", "")} | Application`,
-            iconURL: guild.iconURL({ size: 512 }),
-          })
-          .setTimestamp()
+        .setAuthor({
+          name: guild.name,
+          iconURL: guild.iconURL({ size: 512 }),
+        })
+        .setTitle(`**${user.tag}'s Application**`)
+        .setColor(pendingColor)
+        .setThumbnail(user.displayAvatarURL({ size: 512 }))
+        .setFooter({
+          text: `${interaction.customId.replace("applicationModal ", "")} | Application`,
+          iconURL: guild.iconURL({ size: 512 }),
+        })
+        .setTimestamp()
+
       Object.keys(Application.Questions).forEach((key) => {
         let question = fields.getTextInputValue(key);
         if (question.length < 1) question = "No answer provided";
         embed.addFields({ name: key, value: question });
       });
+
       embed.addFields({
         name: "Application Statistics",
         value: [
@@ -55,6 +58,7 @@ module.exports = {
           )}:R>`,
         ].join("\n"),
       });
+
       await guild.channels.cache
         .get(Channel)
         .send({
