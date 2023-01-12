@@ -8,7 +8,7 @@ async function loadSelectMenus(client) {
   Files.forEach((file) => {
     const selectMenu = require(file);
     try {
-      client.selectMenus.set(selectMenu.name, selectMenu);
+      selectMenus.set(selectMenu.name, selectMenu);
     } catch (error) {
       console.log(error);
     }

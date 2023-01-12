@@ -9,7 +9,7 @@ async function loadButtons(client) {
     const button = require(file);
     if (!button.id) return;
     try {
-      client.buttons.set(button.id, button);
+      buttons.set(button.id, button);
     } catch (error) {
       console.log(error);
     }
