@@ -50,7 +50,7 @@ module.exports = {
           .setRequired(value.required);
         if (value.placeholder) TextInput.setPlaceholder(value.placeholder);
         if (value.value) TextInput.setValue(value.value);
-        Modal.setComponents(new ActionRowBuilder().setComponents(TextInput));
+        Modal.addComponents(new ActionRowBuilder().setComponents(TextInput));
       });
       interaction.showModal(Modal);
     } catch (error) {
