@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "discord.js": "^14.7.1",
+    "discord.js": "^14.8.0",
     "format-ms": "^1.2.1",
     "glob": "^8.0.3",
     "yaml": "^2.2.0"
